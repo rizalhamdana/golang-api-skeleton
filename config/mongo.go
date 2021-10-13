@@ -9,7 +9,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-func MongoRead(ctx *context.Context) (*mongo.Client, error) {
+func MongoRead(ctx *context.Context) (*mongo.Database, error) {
 	mongoUsername := os.Getenv("MONGO_DB_USERNAME")
 	mongoPassword := os.Getenv("MONGO_DB_PASSWORD")
 	mongoServer := os.Getenv("MONGO_DB_SERVER")
@@ -20,10 +20,10 @@ func MongoRead(ctx *context.Context) (*mongo.Client, error) {
 		return nil, err
 	}
 
-	return client, nil
+	return client.Database(mongoDatabaseName), nil
 }
 
-func MongoWrite(ctx *context.Context) (*mongo.Client, error) {
+func MongoWrite(ctx *context.Context) (*mongo.Database, error) {
 	mongoUsername := os.Getenv("MONGO_DB_USERNAME")
 	mongoPassword := os.Getenv("MONGO_DB_PASSWORD")
 	mongoServer := os.Getenv("MONGO_DB_SERVER")
@@ -35,7 +35,7 @@ func MongoWrite(ctx *context.Context) (*mongo.Client, error) {
 		return nil, err
 	}
 
-	return client, nil
+	return client.Database(mongoDatabaseName), nil
 
 }
 

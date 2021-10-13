@@ -12,8 +12,8 @@ import (
 )
 
 type Service struct {
-	DBRead       *mongo.Client
-	DBWrite      *mongo.Client
+	DBRead       *mongo.Database
+	DBWrite      *mongo.Database
 	MongoContext context.Context
 }
 

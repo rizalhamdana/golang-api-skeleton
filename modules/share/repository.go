@@ -7,11 +7,11 @@ import (
 )
 
 type Repository struct {
-	MongoRead, MongoWrite *mongo.Client
+	MongoRead, MongoWrite *mongo.Database
 	Ctx                   *context.Context
 }
 
-func NewRepository(mongoRead, mongoWrite *mongo.Client, ctx *context.Context) *Repository {
+func NewRepository(mongoRead, mongoWrite *mongo.Database, ctx *context.Context) *Repository {
 	return &Repository{
 		MongoRead:  mongoRead,
 		MongoWrite: mongoWrite,
